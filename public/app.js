@@ -4,7 +4,6 @@ const inputs = document.querySelectorAll('.inputs')
 var turnedOn = false
 for (let i of inputs) {
     i.addEventListener('click' , (e) => {
-        e.preventDefault()
         if (turnedOn === false) {
             console.log('works')
             buttons.style.display = 'flex'

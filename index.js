@@ -3,7 +3,7 @@ const app = express()
 const path = require('path')
 const axios = require('axios')
 
-
+var comments = []
 app.use(express.static('public'))
 app.use(express.urlencoded({ extended: true}))
 
@@ -15,5 +15,12 @@ app.listen(3000, () => {
 })
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.render('home', {comments})
+})
+
+app.post('/comment', (req, res) => {
+    console.log(req.body)
+    const { username, comment} = req.body
+    comments.push({username, comment })
+    res.redirect('/', username, comment)
 })

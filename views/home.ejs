@@ -11,16 +11,23 @@
     <div class="maindiv">
         <div class="cont">
             <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2094&q=80" alt="">
-            <form action="/" method="post" class="createComment" id="mainForm">
-                <input type="text" name="username" id="username" placeholder="Username" class="inputs"> <br>
-                <input type="text" name="comment" id="comment" placeholder="Comment" class="inputs">
+            <form action="/comment" method="post" class="createComment" id="mainForm">
+                <input type="text" name="username" id="username" placeholder="Username" class="inputs" required> <br>
+                <input type="text" name="comment" id="comment" placeholder="Comment" class="inputs" required>
             </form>
             <div class="buttons">
                 <button class="cancel">Cancel</button>
                 <button type="submit" form="mainForm" class="send">Send</button>
             </div>
+            <% for(let c of comments) {%>
+                <div>
+                    <p><%= c.username %></p>
+                    <p><%= c.comment %></p>
+                </div>
+                <% } %>
         </div>
     </div>
     <script src="/app.js"></script>
+    <script><%= console.log(comments) %> </script>
 </body>
 </html>

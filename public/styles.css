@@ -30,6 +30,6 @@ img {
     padding: 15px 0 0 0;
 }
 .buttons {
-    display: flex;
     justify-content: end;
+    display: none;
 }

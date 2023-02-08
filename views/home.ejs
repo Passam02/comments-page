@@ -11,12 +11,14 @@
     <div class="maindiv">
         <div class="cont">
             <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2094&q=80" alt="">
-            <form action="/" method="post" class="createComment">
-                <input type="text" name="username" id="username" placeholder="Username"> <br>
-                <input type="text" name="comment" id="comment" placeholder="Comment">
-                <div class="buttons">
-                </div>
+            <form action="/" method="post" class="createComment" id="mainForm">
+                <input type="text" name="username" id="username" placeholder="Username" class="inputs"> <br>
+                <input type="text" name="comment" id="comment" placeholder="Comment" class="inputs">
             </form>
+            <div class="buttons">
+                <button class="cancel">Cancel</button>
+                <button type="submit" form="mainForm" class="send">Send</button>
+            </div>
         </div>
     </div>
     <script src="/app.js"></script>

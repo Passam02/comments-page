@@ -12,3 +12,8 @@ for (let i of inputs) {
         }
 })}
 
+const cancel = document.querySelector('.cancel')
+cancel.addEventListener('click', () => {
+    buttons.style.display = 'none'
+    turnedOn = false
+})

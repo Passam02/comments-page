@@ -7,6 +7,10 @@ for (let i of inputs) {
         if (turnedOn === false) {
             console.log('works')
             buttons.style.display = 'flex'
+            for (let i of inputs) {
+            i.style.borderColor = 'white'
+            i.style.transition = '0.7s'
+            }
             turnedOn = true
         }
 })}
@@ -14,5 +18,8 @@ for (let i of inputs) {
 const cancel = document.querySelector('.cancel')
 cancel.addEventListener('click', () => {
     buttons.style.display = 'none'
+    for (let i of inputs) {
+        i.style.borderColor = 'grey'
+        }
     turnedOn = false
 })

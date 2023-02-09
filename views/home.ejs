@@ -24,6 +24,14 @@
                 <div class="comments">
                     <h6><%= c.username %></h6>
                     <h4><%= c.comment %></h4>
+                    <div class="btn-group dropstart">
+                        <button type="button" class="btn btn-secondary dropdown-toggle commOption" data-bs-toggle="dropdown" aria-expanded="false"></button>
+                        <ul class="dropdown-menu p-0">
+                            <li><a class="dropdown-item text-white " href="#">Edit</a></li>
+                            <li><a class="dropdown-item text-white" href="#">Delete</a></li>
+                          </ul>
+                        
+                    </div>
                 </div>
                 <% } %>
         </div>

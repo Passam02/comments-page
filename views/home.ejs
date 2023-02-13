@@ -14,7 +14,7 @@
             <img src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2094&q=80" alt="">
             <form action="/comment" method="post" class="createComment" id="mainForm">
                 <input type="text" name="username" id="username" placeholder="Username" class="inputs" required> <br>
-                <input type="text" name="comment" id="comment" placeholder="Comment" class="inputs comment" required>
+                <input type="text" name="comment" id="comment" placeholder="Comment" class="inputs comment fs-4" required>
             </form>
             <div class="buttons">
                 <button class="cancel btn btn-light">Cancel</button>
@@ -23,19 +23,24 @@
             <% for(let c of comments) {%>
                 <div class="comments">
                     <h6><%= c.username %></h6>
-                    <h4 class="userComm"><%= c.comment %></h4>
+                    <form  method="post" action="/comment/<%=c.id%>?_method=PATCH" id="<%= c.id %>">
+                    <h4><%= c.comment %></h4> 
+                    </form>
                     <div class="btn-group dropstart">
                         <button type="button" class="btn btn-secondary dropdown-toggle commOption" data-bs-toggle="dropdown" aria-expanded="false"></button>
                         <ul class="dropdown-menu p-0">
                             <li><a class="dropdown-item text-white edit">Edit</a></li>
-                            <li><a class="dropdown-item text-white delete">Delete</a></li>
+                            <form method='post' action="/comment/<%=c.id%>?_method=DELETE">
+                                <li><button type="submit" class="dropdown-item text-white delete">Delete</button></li>
+                            </form>
                           </ul>
                     </div>
                 </div>
                 <div class="buttons">
                     <button class="cancel btn btn-light">Cancel</button>
-                    <button type="submit" form="commentEdit" class="send btn btn-light">Send</button>
+                    <button type="submit" form="<%= c.id %>" class="send btn btn-light">Edit</button>
                 </div>
+                <p style="display: none;"><%= c.username %></p>
                 <% } %>
         </div>
     </div>

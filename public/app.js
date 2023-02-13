@@ -23,11 +23,14 @@ c.addEventListener('click', () => {
     }
     for (let i of inputs) {
         i.style.borderColor = 'grey'
+        i.value = ''
         }
     for (let e of edits) {
         var ep = e.parentElement.parentElement.parentElement
         ep.style.display = 'flex'
         ep.parentElement.children[1].children[0].style.borderColor = 'grey'
+        const txt = ep.parentElement.nextElementSibling.nextElementSibling.innerText
+        ep.parentElement.children[1].innerHTML = '<h4 class="comment fs-4">'+txt+'<h4/>'
     }
     turnedOn = false
 })
@@ -35,11 +38,10 @@ c.addEventListener('click', () => {
 
 for (let e of edits) {
     let ep = e.parentElement.parentElement.parentElement
-    console.dir(ep.parentElement.children[1])
     e.addEventListener('click', () => {
         ep.style.display = 'none'
         const txt = ep.parentElement.children[1].innerText
-        ep.parentElement.children[1].innerHTML = '<input class="comment"value="'+txt+'">'
+        ep.parentElement.children[1].innerHTML = '<input name="newComment" class="comment fs-4"value="'+txt+'">'
         ep.parentElement.nextElementSibling.style.display = 'flex'
         ep.parentElement.children[1].children[0].style.transition = '0.7s'
         ep.parentElement.children[1].children[0].style.borderColor = 'white'
